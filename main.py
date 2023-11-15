@@ -19,6 +19,9 @@ def read_root():
 def make_predictions(X: List[DataModel]):
     print(X)
     df = pd.DataFrame([x.dict() for x in X])
-    predicion_model = PredictionModel()
-    results = predicion_model.make_predictions(df)
-    return results.tolist()
+    prediction_model = PredictionModel()
+
+    results = prediction_model.make_predictions(df)
+    probs = prediction_model.get_probability(df)*100
+
+    return "Prediction: "+str(results)+"; probability: "+str(probs)

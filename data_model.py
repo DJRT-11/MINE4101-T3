@@ -8,6 +8,7 @@ class DataModel(BaseModel):
     tenure: int
     PhoneService: str
     MultipleLines: str
+    InternetService: str
     Contract: str
     PaperlessBilling: str
     PaymentMethod: str
