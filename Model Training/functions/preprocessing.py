@@ -34,12 +34,13 @@ def preprocessing_json(json_path):
         # Create and apply OneHotEncoder for categorical features, and re-create dataframe
         df_ctg = df[ctg_feats]
         df_num = df[num_feats]
+        df_res = df["Churn"]
 
         enc = OneHotEncoder(sparse=False)
         enc_ctg = enc.fit_transform(df_ctg)
 
         df_enc = pd.DataFrame(enc_ctg,columns=enc.get_feature_names_out(ctg_feats))
         
-        df_end = pd.concat([df_num, df_enc], axis=1)
+        df_end = pd.concat([df_num, df_enc, df_res], axis=1)
 
         return df_end
