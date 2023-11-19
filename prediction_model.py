@@ -1,5 +1,5 @@
 from joblib import load
-import shap
+import numpy as np
 
 class BaselineModel:
 

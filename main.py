@@ -57,15 +57,17 @@ def make_predictions(X: List[DataModel]):
     for i, r in df.iterrows():
         row_df = pd.DataFrame([r], columns=df.columns)
 
-        pred = (prediction_model.make_predictions(row_df)).item()
-        prob = (prediction_model.get_probability(row_df)*100).item()
+        pred = (prediction_model.make_predictions(row_df))
+        prob = (prediction_model.get_probability(row_df)*100)
+
+        # print([pred,prob])
 
         preds.append(pred)
-        probs.append(prob)
+        # probs.append(prob)
 
-    out_df = pd.DataFrame({'Prediction': preds, 'Probability': probs})    
-    out_json = out_df.to_json(orient='records')
-    return out_json
+    # out_df = pd.DataFrame({'Prediction': preds, 'Probability': probs})    
+    # out_json = out_df.to_json(orient='records')
+    return preds
 
 @app.post("/2.0/explain")
 def explain(X: List[DataModel]):
