@@ -40,13 +40,11 @@ def make_predictions(X: List[DataModel]):
 
 @app.post("/1.0/explain")
 def explain(X: List[DataModel]):
-    print(X)
-    df = pd.DataFrame([x.dict() for x in X])
+    df = preprocessing_json(X)
     prediction_model = BaselineModel()
-
     coefs = prediction_model.get_coefs(df)
-    print(type(coefs))
-    return coefs.tolist()
+    print(len(coefs))
+    return coefs
 
 @app.post("/2.0/predict")
 def make_predictions(X: List[DataModel]):
@@ -70,11 +68,9 @@ def make_predictions(X: List[DataModel]):
     return out_json
 
 @app.post("/2.0/explain")
-def make_predictions(X: List[DataModel]):
-    print(X)
-    df = pd.DataFrame([x.dict() for x in X])
+def explain(X: List[DataModel]):
+    df = preprocessing_json(X)
     prediction_model = PredictionModel()
-
     coefs = prediction_model.get_coefs(df)
-    print(type(coefs))
-    return coefs.tolist()
+
+    return coefs

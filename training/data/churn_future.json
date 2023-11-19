@@ -4136,7 +4136,7 @@
     "PaperlessBilling": "No",
     "PaymentMethod": "Mailed check",
     "MonthlyCharges": 25.75,
-    "TotalCharges": "",
+    "TotalCharges": "0",
     "Churn": "No"
   },
   {

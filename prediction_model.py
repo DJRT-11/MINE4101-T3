@@ -15,8 +15,19 @@ class BaselineModel:
         return probs
     
     def get_coefs(self, data):     
-        coefs = self.model.steps[1][1].coef_
-        return coefs
+        coefs = self.model.coef_[0,:].tolist()
+        names = self.model.feature_names_in_.tolist()
+        
+        out = {}
+        for key in names:
+            for value in coefs:
+                out[key] = value
+                coefs.remove(value)
+                break
+
+        out_3 = dict(sorted(out.items(), key=lambda x: abs(x[1]), reverse=True)[:3])
+
+        return out_3
     
 class PredictionModel:
 
@@ -32,5 +43,16 @@ class PredictionModel:
         return probs
     
     def get_coefs(self, data):     
-        coefs = self.model.steps[2][1].feature_importances_
-        return coefs
+        coefs = self.model.steps[1][1].feature_importances_.tolist()
+        names = self.model.feature_names_in_.tolist()
+        
+        out = {}
+        for key in names:
+            for value in coefs:
+                out[key] = value
+                coefs.remove(value)
+                break
+
+        out_3 = dict(sorted(out.items(), key=lambda x: abs(x[1]), reverse=True)[:3])
+
+        return out_3
