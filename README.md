@@ -1,7 +1,8 @@
 # MINE4101-T3
 Repositorio público para Taller 3 de Ciencia de Datos Aplicada
 
-## Los resultados a las preguntas del enunciado se encuentran en el notebook xxxxxxxxxxxxxxxx.ipynb
+## Los resultados a las preguntas 1 - 3 del enunciado se encuentran en el notebook T3 Model Training.ipynb
+## Los resultados a la pregunta 5 del enunciado se encuentra en el notebook a-b_testing.ipynb
 
 ## Instrucciones previas
 
