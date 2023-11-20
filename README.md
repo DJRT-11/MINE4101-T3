@@ -1,6 +1,8 @@
 # MINE4101-T3
 Repositorio público para Taller 3 de Ciencia de Datos Aplicada
 
+## Los resultados a las preguntas del enunciado se encuentran en el notebook xxxxxxxxxxxxxxxx.ipynb
+
 ## Instrucciones previas
 
 ### Creación de entorno e instalación de paquetes
@@ -39,14 +41,17 @@ Para ejecutar este programa correctamente, se recomienda crear un entorno virtua
 #### a-b_testing
 Contiene los datos divididos en los grupos necesarios para la sección "A/B Testing" del enunciado.
 #####   input-data
-    Conjuntos de datos separados en <i>baseline</i> y <i>optimizado</i>, y en un subgrupo para cada día de la semana (01 a 07)
+Conjuntos de datos separados en <i>baseline</i> y <i>optimizado</i>, y en un subgrupo para cada día de la semana (01 a 07)
 #####   outputs
-    Conjuntos de archivos de predicción para cada archivo en ``input data``.
+Conjuntos de archivos de predicción para cada archivo en ``input data``.
 
 #### models
 Contiene archivos .joblib con los modelos de predicción.
 - churn-baseline-v1.0.joblib: Modelo de regresión logística, sin optimizar.
 - churn-v1.0.joblib: Modelo de Random Forest, con hiperparámetros optimizados a través de validación cruzada.
 
-#### functions
+#### training
+Información relacionada al entrenamiento de los modelos
+- data: datos en formato JSON utilizados en el proceso de entrenamiento.
+- functions: functiones utilizadas para transformación y preprocesamiento de datos ingresados en el endpoint.
 
