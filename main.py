@@ -36,8 +36,8 @@ def make_predictions(X: List[DataModel]):
 
     out_df = pd.DataFrame({'Prediction': preds, 'Probability': probs})
     print(out_df)    
-    out_json = out_df.to_json(orient='records')
-    return out_json
+    out = out_df.to_dict('records')
+    return out
 
 @app.post("/1.0/explain")
 def explain(X: List[DataModel]):
